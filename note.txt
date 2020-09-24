@@ -1,0 +1,24 @@
+Perintah docker
+docker info: melihat info docker yang ada pada pc local
+docker images: untuk melihat images yang telah ada
+docker pull nama_image: untuk mengambil image pada registry
+docker container ls: melihat list container pada local pc kita
+docker container create --name nama_container nama_image:x.x: membuat container baru (nama container harus unik)
+docker container stop nama_container: memberhentikan container yang sedang berjalan
+docker container rm nama_container: menghapus container  (jika container sedang berjalan harus dihentikan terlebih dahulu)
+docker image rm nama_image:x.x: menghapus image
+docker container start nama_container: menjalankan container
+docker container create --name mongoserver_2 -p 8181:27017 mongo:latest
+docker tag app-node:1.0 nauvalshidqi/app-node:1.0
+docker ps --no-trunc: melihat container yang sedang berjalan full (tanpa ada tulisan kepotong)
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+docker build --tag nama_image:x.x . : membuat image baru
+docker container logs nama_container
+docker container inspect app2
+docker run -p :3011:3001 -d --name project_node  nodejs_app:1.0: membuat dan menjalankan sebuah container
+docker ps: melihat containe yang sedang jalan
+docker network create cat-app-network
+docker volume create cat-app-volume
+docker run -p 27017:27017 --network cat-app-network -v cat-app-volume:/data/db -d --name mongo -t mongo:latest
+docker run -p 8181:3001 -d -e NAME=Nauval -e PASSWORD=Rahasia  --name app2 app-node2:1.0
