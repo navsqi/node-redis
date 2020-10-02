@@ -1,27 +1,23 @@
 version: '3.8'
 
 services:
-  mongo:
-    container_name: mongo
-    image: mongo:latest
+  redis:
+    container_name: redis
+    image: redis:6
+    command: redis-server /usr/local/etc/redis/redis.conf
     ports:
-      - 2727:27017
+      - 6379:6379
+    volumes:
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
     networks:
       - node_network
-    volumes:
-      - mongo_data:/data/db
   node:
     build: .
     container_name: express
     ports:
       - 3001:3001
-    depends_on:
-      - mongo
     environment:
       - NAME=Nauval
-      - MONGO_HOST=mongo
-      - MONGO_PORT=27017
-      - WAIT_HOSTS=mongo:27017
     networks:
       - node_network
     volumes:
@@ -29,6 +25,3 @@ services:
 
 networks:
   node_network:
-
-volumes:
-  mongo_data:
