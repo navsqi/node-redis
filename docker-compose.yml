@@ -18,6 +18,8 @@ services:
       - 3001:3001
     environment:
       - NAME=Nauval
+      - PORT=3001
+      - REDIS_PORT=6379
     networks:
       - node_network
     volumes:

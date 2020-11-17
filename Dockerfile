@@ -6,5 +6,7 @@ RUN mkdir /app
 ADD . /app
 WORKDIR /app
 
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
 RUN npm install
-CMD npm start
+CMD /wait && npm start
