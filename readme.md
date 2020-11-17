@@ -1,6 +1,9 @@
 # Description
 
-Caching in Node.JS using Redis with Docker
+Caching in Node.JS using Redis with Docker.
+
+Starting file: https://github.com/shidqi/node-redis/tree/starting \
+YouTube video: https://www.youtube.com/watch?v=KDAyN3StOG8&t=2s
 
 # Installation
 
